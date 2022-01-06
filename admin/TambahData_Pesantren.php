@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan Pesantren Tahfidz DH";
-    $lokasi3 = "Tambah Data Pesantren Tahfidz DH";
-    $linklokasi2 = "KelolaPelaporan_Pesantren.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "../admin/template/header.php";   
     include "../admin/template/menu.php";
-    include "../admin/template/lokasi.php";
+    include "../admin/template/lokasi2.php";
     include "../admin/fungsi.php";
 
     $kodetambahPesantren = kodetambahPesantren();
@@ -15,15 +15,15 @@
 ?>
 
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Input Penerimaan Pesantren Tahfidz DH</h2>
+    <h4 align="center" class="pt-3 pb-3">Input Penerimaan Pesantren Tahfidz DH</h4>
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data</label>
-                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahPesantren?>" readonly>
+                        <!-- <label for="">ID Data</label> -->
+                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahPesantren?>" hidden>
                     </div>  
 
                     <div class="form-group row">
@@ -93,8 +93,8 @@
                     <textarea class="form-control" name="kd_keterangan" placeholder="Ketikan Keterangan" rows="3" required></textarea>
                     </div>
                     <div class="form-group ">
-                        <label for="">Tipe</label>
-                        <input type="text" class="form-control" name="" value="PEMASUKAN" readonly>
+                        <!-- <label for="">Tipe</label> -->
+                        <input type="text" class="form-control" name="" value="PEMASUKAN" hidden>
                     </div>
 
                     <div class="form-group">

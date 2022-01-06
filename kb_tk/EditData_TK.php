@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan KB - TK Al - Ihsan";
-    $lokasi3 = "Edit Data Laporan KB - TK Al - Ihsan";
+    $lokasi1 = "Menu";
+    $lokasi2 = "Laporan Transaksi";
+    $lokasi3 = "Tambah Transaksi";
     $linklokasi2 = "KelolaPelaporan_TK.php";
-    $linklokasi3 = "";
+    $linklokasi3 = "TambahData_TK.php";
 
     include "../kb_tk/template/header.php";   
     include "../kb_tk/template/menu.php";
-    include "../kb_tk/template/lokasi.php";
+    include "../kb_tk/template/lokasi1.php";
     include "../kb_tk/fungsi.php";
 
     $db_user= query("SELECT a.id_data_input, a.gambar, a.id_pp, a.kd_jumlah, a.kd_keterangan, b.kd_nama_usaha, c.nama_kategori, d.kd_nama_bulan 
@@ -23,16 +23,13 @@
     ?>
 
 <div class="container-fluid">
-        <h2 align="center">Detail Pemasukan KB - TK Al - Ihsan</h2>
-        <h2 align="center">Hidayatullah Probolinggo</h2>
+    <br>
+        <h4 align="center">Detail Pemasukan KB-TK Al-Ihsan</h4>
+        <h4 align="center">Hidayatullah Probolinggo</h4>
     <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-12 ">
-
-            <a href="KelolaPelaporan_TK.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-database"></i> Laporan Transaksi</a>
-            <a href="TambahData_TK.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-cart-plus"></i> Tambah Transaksi</a>
             <div style="overflow-x:auto;">
-
-            <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
+            <table class="table table-bordered" align = "center" id="data">
                 <thead >
                     <tr align="center">
                         <th>No</th>

@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Pengeluaran";
-    $lokasi2 = "Kelola Laporan KB Integral";
-    $lokasi3 = "Tambah Data KB Integral";
-    $linklokasi2 = "KelolaPelaporan_pengeluaranKB.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "../admin/template/header.php";   
     include "../admin/template/menu.php";
-    include "../admin/template/lokasi.php";
+    include "../admin/template/lokasi2.php";
     include "../admin/fungsi.php";
 
     ini_set('log_errors','On');
@@ -49,25 +49,24 @@
 ?>
 
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Input Pengeluaran KB Integral</h2>
+    <h3 align="center" class="pt-3 pb-3">Input Pengeluaran KB Integral</h3>
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data</label>
-                        <input type="text" class="form-control" name="id_data_output" value="<?=$kodetambahpengeluaranKB?>" readonly>
-                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahYayasan?>" hidden>
+                        <!-- <label for="">ID Data</label> -->
+                        <input type="text" class="form-control" name="id_data_output" value="<?=$kodetambahpengeluaranKB?>" hidden>
+                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahpengeluaranKB?>" hidden>
 
-                    </div>  
+                    </div> 
+                    
+                    <div class="form-group ">
+                       <input type="text" class="form-control" name="" value="KB Integral" hidden>
+                    </div> 
 
                     <div class="form-group row">
-                    <!-- <div class="col-md-6">
-                        <label for="">Total Anggaran Pemasukan :</label> -->
-                        <input type="text" class="form-control" name="sub_total" value="<?=$jumlahhasil2?>" hidden>
-                        <!-- <input type="text" class="form-control" name="" value="<?php echo number_format($jumlahhasil2,2,',','.') ?>" readonly>
-                    </div> -->
                     <div class="col-md-12">
                         <label for="tempat">Anggaran Yang Bisa Digunakan</label>
                         <div class="input-group">
@@ -80,14 +79,7 @@
                     </div>  
 
                     <div class="form-group row">
-                    <div class="col-md-4">
-                    <div class="form-group ">
-                        <label for="">Usaha</label>
-                        <input type="text" class="form-control" name="" value="KB Integral" readonly>
-
-                    </div>
-                    </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                     <label for="">Kategori  </label>
                         <select name="id_kategori" class="form-control select-dropdown" required>
                             <option value="" selected disabled>Pilih Kategori  </option>
@@ -100,7 +92,7 @@
                             ?>
                     </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                     <label for="">Bulan  </label>
                         <select name="id_bulan" class="form-control select-dropdown" required>
                             <option value="" selected disabled>Pilih Bulan  </option>
@@ -114,9 +106,7 @@
                     </select>
                     </div>
                     <br>
-                    </div>
-                    
-                    
+                    </div>  
                  
                     <div class="form-group row">
                     <div class="col-md-6">
@@ -133,7 +123,6 @@
                         }
                     </script>     
 
-
                     <div class="col-md-6">
                         <label for="tempat">Bukti Pengeluaran</label>
                         <div class="input-group">
@@ -143,13 +132,11 @@
                     </div>
                     </div>  
                     <div class="form-group ">
-
                     <label for="exampleFormControlTextarea1" class="form-label">Keterangan :</label>
-                    <textarea class="form-control" name="kd_keterangan" placeholder="Ketikan Keterangan" rows="3" required></textarea>
+                    <textarea class="form-control" name="kd_keterangan" placeholder="Ketikan Nama Unit Usaha Dan Keterangan" rows="3" required></textarea>
                     </div>
                     <div class="form-group ">
-                        <label for="">Tipe</label>
-                        <input type="text" class="form-control" name="" value="PENGELUARAN" readonly>
+                        <input type="text" class="form-control" name="" value="PENGELUARAN" hidden>
                     </div>
 
                     <div class="form-group">
@@ -171,14 +158,14 @@
                 echo "
                 <script>
                 alert('Pengeluaran Sudah Berhasil Di Tambah');
-                document.location.href = 'EditData_pengeluaranKB.php';         
+                document.location.href = 'Kelola_YayasanKB.php';         
                 </script>
                 ";
             }   else {
                 echo "
                 <script>
                 alert('Pengeluaran Tidak Berhasil Di Tambah');history.go(-1)
-                document.location.href = 'TambahData_pengeluaranKB.php';         
+                document.location.href = 'TambahData_saldoKB.php';         
                 </script>
                 ";
                 echo("<br>");

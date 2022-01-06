@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Administrasi";
-    $lokasi2 = "Kelola Data Akun Pegawai";
-    $lokasi3 = "Input Data Akun Pegawai";
-    $linklokasi2 = "KelolaPelaporan_pegawai.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = " ";
 
     include "../admin/template/header.php";   
     include "../admin/template/menu.php";
-    include "../admin/template/lokasi.php";
+    include "../admin/template/lokasi2.php";
     include "../admin/fungsi.php";
 
     $kodeuser = kodeuser();
@@ -15,15 +15,15 @@
 ?>
 
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Registrasi Akun Unit Usaha Yayasan Al - Ihsan</h2>
+    <h3 align="center" class="pt-3 pb-3">Registrasi Akun Unit Usaha Yayasan Al - Ihsan</h3>
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Akun</label>
-                        <input type="text" class="form-control" name="id_user" value="<?=$kodeuser?>" readonly>
+                        <!-- <label for="">ID Akun</label> -->
+                        <input type="text" class="form-control" name="id_user" value="<?=$kodeuser?>" hidden>
                     </div>  
 
                     <div class="form-group row">

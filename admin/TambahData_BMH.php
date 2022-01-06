@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan Mitra BMH";
-    $lokasi3 = "Tambah Data Mitra BMH";
-    $linklokasi2 = "KelolaPelaporan_BMH.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
     
     include "../admin/template/header.php";   
     include "../admin/template/menu.php";
-    include "../admin/template/lokasi.php";
+    include "../admin/template/lokasi2.php";
     include "../admin/fungsi.php";
 
     $kodetambahBMH = kodetambahBMH();
@@ -22,8 +22,8 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data</label>
-                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahBMH?>" readonly>
+                        <!-- <label for="">ID Data</label> -->
+                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahBMH?>" hidden>
                     </div>  
 
                     <div class="form-group row">
@@ -93,8 +93,8 @@
                     <textarea class="form-control" name="kd_keterangan" placeholder="Ketikan Keterangan" rows="3" required></textarea>
                     </div>
                     <div class="form-group ">
-                        <label for="">Tipe</label>
-                        <input type="text" class="form-control" name="" value="PEMASUKAN" readonly>
+                        <!-- <label for="">Tipe</label> -->
+                        <input type="text" class="form-control" name="" value="PEMASUKAN" hidden>
                     </div>
 
                     <div class="form-group">

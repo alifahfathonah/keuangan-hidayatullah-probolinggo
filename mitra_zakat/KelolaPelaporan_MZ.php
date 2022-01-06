@@ -1,13 +1,13 @@
   <?php
-      $lokasi1 = "Pemasukan";
-      $lokasi2 = "Kelola Laporan Mitra Zakat";
-      $lokasi3 = "";
-      $linklokasi2 = "";
-      $linklokasi3 = "";
+      $lokasi1 = "Menu";
+      $lokasi2 = "Detail Transaksi";
+      $lokasi3 = "Unduh Laporan";
+      $linklokasi2 = "EditData_MZ.php";
+      $linklokasi3 = "Unduh_laporanMZ.php";
 
       include "../mitra_zakat/template/header.php";   
       include "../mitra_zakat/template/menu.php";
-      include "../mitra_zakat/template/lokasi.php";
+      include "../mitra_zakat/template/lokasi1.php";
       include "../mitra_zakat/fungsi.php";
 
       ini_set('log_errors','On');
@@ -67,29 +67,22 @@
 
   <div class="container-fluid">
       <div class="col-12 col-s-12">
-          <h2 align="center">Transaksi Pemasukan Mitra Zakat</h2>
-          <h2 align="center">Hidayatullah Probolinggo</h2>
-          <br>
-
-          <!-- <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p> -->
+      <br>
+        <h3 align="center">Transaksi Pemasukan Mitra Zakat</h3>
+          <h3 align="center">Hidayatullah Probolinggo</h3>
       </div>
       <div class="row justify-content-center">
-          <div class="col-sm-12 col-lg-12 ">
-              <a href="EditData_MZ.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-database"></i> Detail Transaksi</a>
-              <a href="Unduh_laporanMZ.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-print"></i> Unduh Laporan</a>
+          <div class="col-sm-12 col-lg-12 ">  
               <br>
               <div style="overflow-x:auto;">
-              <table class="table table-striped table-hover table-bordered table-align-middle" id="data"style="width:100%">
+              <table class="table table-bordered" align = "center" id="data">
                   <thead >
-
                   
                       <tr align="center">
                           <th rowspan="2">No</th>
                           <th rowspan="2" width="200px">Kategori</th>
                           <th colspan="12" width="110px">Bulan</th>  
                           <th rowspan="2" width="200px">Total 1 Tahun</th>
-
-                           
                       </tr>
 
                       </tr>

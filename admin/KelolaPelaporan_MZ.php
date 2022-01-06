@@ -1,9 +1,9 @@
   <?php
       $lokasi1 = "Pemasukan";
-      $lokasi2 = "Kelola Laporan Mitra Zakat";
-      $lokasi3 = "";
-      $linklokasi2 = "";
-      $linklokasi3 = "";
+      $lokasi2 = "Detail Transaksi";
+      $lokasi3 = "Unduh Laporan";
+      $linklokasi2 = "EditData_MZ.php";
+      $linklokasi3 = "Unduh_laporanMZ.php";
 
       include "../admin/template/header.php";   
       include "../admin/template/menu.php";
@@ -67,29 +67,22 @@
 
   <div class="container-fluid">
       <div class="col-12 col-s-12">
-          <h2 align="center">Transaksi Pemasukan Mitra Zakat</h2>
-          <h2 align="center">Hidayatullah Probolinggo</h2>
-          <br>
-
-          <!-- <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p> -->
-      </div>
+      <br>
+          <h3 align="center">Transaksi Pemasukan Mitra Zakat</h3>
+          <h3 align="center">Hidayatullah Probolinggo</h3>
+      <br>
+  </div>
       <div class="row justify-content-center">
           <div class="col-sm-12 col-lg-12 ">
-              <a href="EditData_MZ.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-database"></i> Detail Transaksi</a>
-              <a href="Unduh_laporanMZ.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-print"></i> Unduh Laporan</a>
-              <br>
               <div style="overflow-x:auto;">
-              <table class="table table-striped table-hover table-bordered table-align-middle" id="data"style="width:100%">
+              <table class="table table-bordered" align = "center" id="data">
                   <thead >
-
-                  
+     
                       <tr align="center">
                           <th rowspan="2">No</th>
                           <th rowspan="2" width="200px">Kategori</th>
                           <th colspan="12" width="110px">Bulan</th>  
-                          <th rowspan="2" width="200px">Total 1 Tahun</th>
-
-                           
+                          <th rowspan="2" width="200px">Total 1 Tahun</th>    
                       </tr>
 
                       </tr>
@@ -108,15 +101,14 @@
                         <th>12</th>
                       </tr>
                       
-
-
                   </thead>
                   <tbody>
                       <?php
                       $i = 1;
                       foreach ($db_data as $data) {
                           ?>
-                  <tr align="center">
+
+                      <tr align="center">
                       <td><?=$i++?>.</td>
                       <td><?=$data['nama_kategori']?></td>
                       <td> <?=number_format($data['bulan1'], 0, ",", ".")?></td>
@@ -132,7 +124,6 @@
                       <td> <?=number_format($data['bulan11'], 0, ",", ".")?></td>
                       <td> <?=number_format($data['bulan12'], 0, ",", ".")?></td>
                       <td> <?=number_format($data['totalkeseluruhan'], 0, ",", ".")?></td>
-
                       </tr>
 
                       <?php } ?>

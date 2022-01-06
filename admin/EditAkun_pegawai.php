@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Administrasi";
-    $lokasi2 = "Kelola Akun Pegawai";
-    $lokasi3 = "Edit Data Akun Pegawai";
-    $linklokasi2 = "KelolaAkun_pegawai.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi2.php";
     include "fungsi.php";
 
     $id = $_GET['id'];
@@ -18,7 +18,7 @@
 
 ?>
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Edit Data Akun Unit Usaha</h2>
+    <h3 align="center" class="pt-3 pb-3">Edit Data Akun Unit Usaha</h3>
 
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
@@ -26,8 +26,8 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Pegawai</label>
-                        <input type="text" class="form-control" name="id_user" value="<?=$data['id_user']?>" readonly>
+                        <!-- <label for="">ID Pegawai</label> -->
+                        <input type="text" class="form-control" name="id_user" value="<?=$data['id_user']?>" hidden>
                     </div>    
 
                     <div class="form-group row">

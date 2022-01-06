@@ -1,9 +1,9 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan SD Integral";
-    $lokasi3 = "Tambah Data SD Integral";
-    $linklokasi2 = "KelolaPelaporan_SMP.php";
-    $linklokasi3 = "TambahData_SMP.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
+    $linklokasi3 = "";
 
     include "../smp_integral/template/header.php";   
     include "../smp_integral/template/menu.php";
@@ -15,15 +15,15 @@
 ?>
 
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Input Penerimaan SMP Integral</h2>
+    <h3 align="center" class="pt-3 pb-3">Input Penerimaan SMP Integral</h3>
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data</label>
-                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahSMP?>" readonly>
+                        <!-- <label for="">ID Data</label> -->
+                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahSMP?>" hidden>
                     </div>  
 
                     <div class="form-group row">
@@ -93,8 +93,8 @@
                     <textarea class="form-control" name="kd_keterangan" placeholder="Ketikan Keterangan" rows="3" required></textarea>
                     </div>
                     <div class="form-group ">
-                        <label for="">Tipe</label>
-                        <input type="text" class="form-control" name="" value="PEMASUKAN" readonly>
+                        <!-- <label for="">Tipe</label> -->
+                        <input type="text" class="form-control" name="" value="PEMASUKAN" hidden>
                     </div>
 
                     <div class="form-group">

@@ -1,8 +1,8 @@
 <?php
-    $lokasi1 = "Pengeluaran";
-    $lokasi2 = "Kelola Laporan Mitra Zakat";
-    $lokasi3 = "Tambah Data Mitra Zakat";
-    $linklokasi2 = "KelolaPelaporan_pengeluaranMZ.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "../mitra_zakat/template/header.php";   
@@ -49,16 +49,16 @@
 ?>
 
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Input Pengeluaran Mitra Zakat</h2>
+    <h3 align="center" class="pt-3 pb-3">Input Pengeluaran Mitra Zakat</h3>
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data</label>
-                        <input type="text" class="form-control" name="id_data_output" value="<?=$kodetambahpengeluaranMZ?>" readonly>
-                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahYayasan?>" hidden>
+                        <!-- <label for="">ID Data</label> -->
+                        <input type="text" class="form-control" name="id_data_output" value="<?=$kodetambahpengeluaranMZ?>" hidden>
+                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahpengeluaranMZ?>" hidden>
 
                     </div>  
 
@@ -148,8 +148,8 @@
                     <textarea class="form-control" name="kd_keterangan" placeholder="Ketikan Keterangan" rows="3" required></textarea>
                     </div>
                     <div class="form-group ">
-                        <label for="">Tipe</label>
-                        <input type="text" class="form-control" name="" value="PENGELUARAN" readonly>
+                        <!-- <label for="">Tipe</label> -->
+                        <input type="text" class="form-control" name="" value="PENGELUARAN" hidden>
                     </div>
 
                     <div class="form-group">
@@ -171,14 +171,14 @@
                 echo "
                 <script>
                 alert('Pengeluaran Sudah Berhasil Di Tambah');
-                document.location.href = 'EditData_pengeluaranMZ.php';         
+                document.location.href = 'Kelola_Yayasan.php';         
                 </script>
                 ";
             }   else {
                 echo "
                 <script>
                 alert('Pengeluaran Tidak Berhasil Di Tambah');history.go(-1)
-                document.location.href = 'TambahData_pengeluaranMZ.php';         
+                document.location.href = 'TambahData_saldoMZ.php';         
                 </script>
                 ";
                 echo("<br>");

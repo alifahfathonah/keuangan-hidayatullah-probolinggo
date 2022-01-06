@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan Pesantren Tahfidz DH";
-    $lokasi3 = "Edit Data Laporan Pesantren Tahfidz DH";
+    $lokasi1 = "Menu";
+    $lokasi2 = "Laporan Transaksi";
+    $lokasi3 = "Tambah Transaksi";
     $linklokasi2 = "KelolaPelaporan_Pesantren.php";
-    $linklokasi3 = "";
+    $linklokasi3 = "TambahData_Pesantren.php";
 
     include "../pesantren/template/header.php";   
     include "../pesantren/template/menu.php";
-    include "../pesantren/template/lokasi.php";
+    include "../pesantren/template/lokasi1.php";
     include "../pesantren/fungsi.php";
 
     $db_user= query("SELECT a.id_data_input, a.gambar, a.id_pp, a.kd_jumlah, a.kd_keterangan, b.kd_nama_usaha, c.nama_kategori, d.kd_nama_bulan 
@@ -23,16 +23,16 @@
     ?>
 
 <div class="container-fluid">
-        <h2 align="center">Detail Pemasukan Pesantren Tahfidz DH</h2>
-        <h2 align="center">Hidayatullah Probolinggo</h2>
-    <div class="row justify-content-center">
+    <br>
+        <h4 align="center">Detail Pemasukan Pesantren Tahfidz DH</h4>
+        <h4 align="center">Hidayatullah Probolinggo</h4>
+    <br>
+    
+        <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-12 ">
-
-            <a href="KelolaPelaporan_Pesantren.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-database"></i> Laporan Transaksi</a>
-            <a href="TambahData_Pesantren.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-cart-plus"></i> Tambah Transaksi</a>
             <div style="overflow-x:auto;">
 
-            <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
+            <table class="table table-bordered" align = "center" id="data">
                 <thead >
                     <tr align="center">
                         <th>No</th>

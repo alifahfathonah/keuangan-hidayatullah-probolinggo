@@ -6,93 +6,102 @@
    header("content-disposition: attachment;filename=Data Laporan Pemasukan KB Integral ".$dat.".xls");
 
    include "../kb_integral/fungsi.php";
+   
+   $jumlah1 = mysqli_query($koneksi,"SELECT SUM(kd_jumlah)  from db_data_input 
+   WHERE id_usaha = 'DTU002'AND id_pp = 1
+   ");
+   // menghitung data barang
+   $jumlah_barang = mysqli_num_rows($jumlah1);
+   
 
+   $db_data  = query("SELECT a.id_data_input, b.nama_kategori, SUM(a.kd_jumlah) AS totalkeseluruhan,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'Januari', a.kd_jumlah, NULL))) AS bulan1,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'Februari', a.kd_jumlah, NULL))) AS bulan2,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'Maret', a.kd_jumlah, NULL))) AS bulan3,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'April', a.kd_jumlah, NULL))) AS bulan4,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'Mei', a.kd_jumlah, NULL))) AS bulan5,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'Juni', a.kd_jumlah, NULL))) AS bulan6,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'Juli', a.kd_jumlah, NULL))) AS bulan7,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'Agustus', a.kd_jumlah, NULL))) AS bulan8,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'September', a.kd_jumlah, NULL))) AS bulan9,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'Oktober', a.kd_jumlah, NULL))) AS bulan10,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'November', a.kd_jumlah, NULL))) AS bulan11,
+   ROUND(SUM(IF(c.kd_nama_bulan = 'Desember', a.kd_jumlah, NULL))) AS bulan12,
 
-    ini_set('log_errors','On');
-      ini_set('display_errors','Off');
-      ini_set('error_reporting', E_ALL );
-      define('WP_DEBUG', false);
-      define('WP_DEBUG_LOG', true);
-      define('WP_DEBUG_DISPLAY', false);
+   ROUND(SUM(IF(a.id_kategori = 'KAT001', a.kd_jumlah, NULL))) AS jumlah1,
+   ROUND(SUM(IF(a.id_kategori = 'KAT014', a.kd_jumlah, NULL))) AS jumlah2,
+   ROUND(SUM(IF(a.id_kategori = 'KAT003', a.kd_jumlah, NULL))) AS jumlah3
+   
+   
+   FROM db_data_input a
+   INNER JOIN db_bulan c ON a.id_bulan = c.id_bulan
+   INNER JOIN db_kategori b ON a.id_kategori = b.id_kategori
+   WHERE a.id_pp = 1 AND a.id_usaha = 'DTU002'
+   
+   GROUP BY b.nama_kategori ASC"
+   ); 
 
-      $jumlah1 = mysqli_query($koneksi,"SELECT SUM(kd_jumlah)  from db_data_input 
-      WHERE id_usaha = 'DTU002'AND id_pp = 1
-      ");
-      // menghitung data barang
-      $jumlah_barang = mysqli_num_rows($jumlah1);
-      
+   $data_terakhir = query("SELECT b.kd_nama_bulan FROM db_data_input a 
+   INNER JOIN db_bulan b ON a.id_bulan = b.id_bulan WHERE id_usaha = 'DTU002' ORDER BY id_data_input DESC LIMIT 1");
 
-      $db_data  = query("SELECT a.id_data_input, b.nama_kategori, SUM(a.kd_jumlah) AS totalkeseluruhan,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'Januari', a.kd_jumlah, NULL))) AS bulan1,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'Februari', a.kd_jumlah, NULL))) AS bulan2,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'Maret', a.kd_jumlah, NULL))) AS bulan3,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'April', a.kd_jumlah, NULL))) AS bulan4,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'Mei', a.kd_jumlah, NULL))) AS bulan5,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'Juni', a.kd_jumlah, NULL))) AS bulan6,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'Juli', a.kd_jumlah, NULL))) AS bulan7,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'Agustus', a.kd_jumlah, NULL))) AS bulan8,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'September', a.kd_jumlah, NULL))) AS bulan9,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'Oktober', a.kd_jumlah, NULL))) AS bulan10,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'November', a.kd_jumlah, NULL))) AS bulan11,
-      ROUND(SUM(IF(c.kd_nama_bulan = 'Desember', a.kd_jumlah, NULL))) AS bulan12,
-
-      ROUND(SUM(IF(a.id_kategori = 'KAT001', a.kd_jumlah, NULL))) AS jumlah1,
-      ROUND(SUM(IF(a.id_kategori = 'KAT014', a.kd_jumlah, NULL))) AS jumlah2,
-      ROUND(SUM(IF(a.id_kategori = 'KAT003', a.kd_jumlah, NULL))) AS jumlah3
-      
-      
-      FROM db_data_input a
-      INNER JOIN db_bulan c ON a.id_bulan = c.id_bulan
-      INNER JOIN db_kategori b ON a.id_kategori = b.id_kategori
-      WHERE a.id_pp = 1 AND a.id_usaha = 'DTU002'
-      
-      GROUP BY b.nama_kategori ASC"
-      ); 
-
-      $data_terakhir = query("SELECT b.kd_nama_bulan FROM db_data_input a 
-      INNER JOIN db_bulan b ON a.id_bulan = b.id_bulan WHERE id_usaha = 'DTU002' ORDER BY id_data_input DESC LIMIT 1");
+    $hasil1=mysqli_query($koneksi,"SELECT * FROM db_data_input where id_usaha = 'DTU002'");
+    while ($jumlah1=mysqli_fetch_array($hasil1)){
+    $arrayhasil1[] = $jumlah1['kd_jumlah'];
+    }
+    $jumlahhasil1 = array_sum($arrayhasil1);
 ?>
-
-    <?php
-
-        $hasil1=mysqli_query($koneksi,"SELECT * FROM db_data_input where id_usaha = 'DTU002'");
-        while ($jumlah1=mysqli_fetch_array($hasil1)){
-        $arrayhasil1[] = $jumlah1['kd_jumlah'];
-        }
-        $jumlahhasil1 = array_sum($arrayhasil1);
-    ?>
 
 <!DOCTYPE html>
     <html>
-    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style>
-    table, th, td {
-    border: 2px solid black;
-    
-        } 
+    <style type="text/css">
+	body{
+		font-family: sans-serif;
+	}
+	table{
+		margin: 20px auto;
+		border-collapse: collapse;
+	}
+	table th,
+	table td{
+		border: 1px solid #3c3c3c;
+		padding: 3px 8px;
+ 
+	}
+	a{
+		background: blue;
+		color: #fff;
+		padding: 8px 10px;
+		text-decoration: none;
+		border-radius: 2px;
+	}
+	</style>
 
     </style>
     </head>
     <body>
 
-<div class="container-fluid">
+    <center>
+    <h3>DATA PEMASUKAN KB INTEGRAL<br/>HIDAYATULLAH PROBOLINGGO</h3>
+	  </center>
 
-    <p><center>DATA PEMASUKAN KB INTEGRAL</center>
-    <center>HIDAYATULLAH PROBOLINGGO</center></p>
-
-    <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
-                <thead >
-                <tr align="center">
-                          <th rowspan="2">No</th>
+    <div class="row justify-content-center">
+          <div class="col-sm-12 col-lg-12 ">
+            
+              <br>
+              <div style="overflow-x:auto;">
+              <table class="table table-striped table-hover table-bordered table-align-middle" id="data"style="width:100%">
+                  <thead >
+                    <tr align="center">
+                    <th rowspan="2">No</th>
                           <th rowspan="2" width="200px">Kategori</th>
                           <th colspan="12" width="110px">Bulan</th>  
                           <th rowspan="2" width="200px">Total 1 Tahun</th>
+                        
+                    </tr>
 
-                           
+                        
                       </tr>
-
-                      </tr>
-                        <tr align="center">
+                      <tr align="center">
                         <th>1</th>
                         <th>2</th>
                         <th>3</th>
@@ -105,15 +114,15 @@
                         <th>10</th>
                         <th>11</th>
                         <th>12</th>
-                      </tr>
-                </thead>
-                        
-                <?php
-                        $i = 1;
-                        foreach ($db_data as $data) {
+                    </tr>
 
-                ?>
-                    <tr align="center">
+                </thead>
+                <tbody>
+                    <?php
+                    $i = 1;
+                    foreach ($db_data as $data) {
+                        ?>
+              <tr align="center">
                       <td><?=$i++?></td>
                       <td><?=$data['nama_kategori']?></td>
                       <td> <?=number_format($data['bulan1'], 0, ",", ".")?></td>
@@ -144,9 +153,11 @@
                         ?>
                         <p align=right><b>Laporan Bulan     : <?=$data1['kd_nama_bulan']?></b>
                         <?php } ?>
-                        
                     </table>
-                </div>
             </div>
         </div>
+    </div>
 
+
+
+    

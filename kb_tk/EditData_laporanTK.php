@@ -30,8 +30,8 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data Laporan</label>
-                        <input type="text" class="form-control" name="id_data_input" value="<?=$data['id_data_input']?>" readonly>
+                        <!-- <label for="">ID Data Laporan</label> -->
+                        <input type="text" class="form-control" name="id_data_input" value="<?=$data['id_data_input']?>" hidden>
                     </div>  
                     <div class="form-group ">
                         <input type="text" class="form-control" name="id_usaha" value="<?=$data['id_usaha']?>" hidden>

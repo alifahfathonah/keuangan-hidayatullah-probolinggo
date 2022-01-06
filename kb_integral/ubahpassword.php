@@ -7,7 +7,7 @@
 
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi1.php";
     include "fungsi.php";
 
     ini_set('log_errors','On');

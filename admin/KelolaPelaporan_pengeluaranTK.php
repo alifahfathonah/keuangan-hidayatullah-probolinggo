@@ -1,9 +1,9 @@
   <?php
       $lokasi1 = "Pengeluaran";
-      $lokasi2 = "Kelola Laporan KB - TK Al - Ihsan";
-      $lokasi3 = "";
-      $linklokasi2 = "";
-      $linklokasi3 = "";
+      $lokasi2 = "Detail Transaksi";
+      $lokasi3 = "Unduh Laporan";
+      $linklokasi2 = "EditData_pengeluaranTK.php";
+      $linklokasi3 = "Unduh_laporanpengeluaranTK.php";
 
       include "../admin/template/header.php";   
       include "../admin/template/menu.php";
@@ -64,21 +64,14 @@
 
   <div class="container-fluid">
       <div class="col-12 col-s-12">
-          <h2 align="center">Transaksi Pengeluaran KB - TK Al - Ihsan</h2>
-          <h2 align="center">Hidayatullah Probolinggo</h2>
+      <br>
+          <h3 align="center">Transaksi Pengeluaran KB - TK Al - Ihsan</h3>
+          <h3 align="center">Hidayatullah Probolinggo</h3>
           <br>
-
       </div>
-      <div class="row justify-content-center">
-          <div class="col-sm-12 col-lg-12 ">
-              <a href="EditData_pengeluaranTK.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-database"></i> Detail Transaksi</a>
-              <a href="Unduh_laporanpengeluaranTK.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-print"></i> Unduh Laporan</a>
-        </div> 
-    </div>
-        
-              <br>
+
               <div style="overflow-x:auto;">
-              <table class="table table-striped table-hover table-bordered table-align-middle" id="data"style="width:100%">
+              <table class="table table-bordered" align = "center" id="data">
                   <thead >
 
                   
@@ -136,7 +129,6 @@
                       </tr>
 
                       <?php } ?>
-                      <!-- <td colspan = "15"></td> -->
                       <tr align="center">                      
                       <td colspan="2">TOTAL KESELURUHAN</td>
                       <td colspan="13"><?php echo number_format($jumlahhasil1,2,',','.') ?></span></td>

@@ -1,13 +1,13 @@
 <?php
     ini_set("display_errors", 0);
        
-    $lokasi1 = "Dashboard";
-    $lokasi2 = "Keseluruhan";
+    $lokasi1 = "";
+    $lokasi2 = "";
     $linklokasi2 = "";
 
     include "../kb_integral/template/header.php";   
     include "../kb_integral/template/menu.php";
-    include "../kb_integral/template/lokasi.php";
+    include "../kb_integral/template/lokasi1.php";
     include "../kb_integral/fungsi.php";
 
     // Pemasukan KB INTEGRAL

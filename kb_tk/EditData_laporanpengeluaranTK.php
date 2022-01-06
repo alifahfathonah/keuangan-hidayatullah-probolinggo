@@ -22,7 +22,10 @@
 
 ?>
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Edit Data Laporan Pengeluaran KB - TK Al - Ihsan</h2>
+    <br>
+        <h3 align="center">Edit Data Laporan Pengeluaran</h3>
+        <h3 align="center">KB - TK Al - Ihsan</h3>
+    <br>
 
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
@@ -30,8 +33,8 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data Laporan</label>
-                        <input type="text" class="form-control" name="id_data_output" value="<?=$data['id_data_output']?>" readonly>
+                        <!-- <label for="">ID Data Laporan</label> -->
+                        <input type="text" class="form-control" name="id_data_output" value="<?=$data['id_data_output']?>" hidden>
                     </div>  
                     <div class="form-group ">
                         <input type="text" class="form-control" name="id_usaha" value="<?=$data['id_usaha']?>" hidden>

@@ -1,7 +1,7 @@
 <?php
     $lokasi1 = "Pemasukan";
     $lokasi2 = "Kelola Laporan KB Integral";
-    $lokasi3 = "Validasi Pemasukan KB Integral";
+    $lokasi3 = "";
     $linklokasi2 = "KelolaPelaporan_KB.php";
     $linklokasi3 = "";
 
@@ -88,11 +88,11 @@
 
 <div class="container-fluid">
     <br>
-    <h2 align="center">Validasi Pemasukan KB Integral </h2>
-
+    <h3 align="center">Validasi Pemasukan KB Integral </h3>
+    <br>
 
     <div class="row justify-content-center">
-        <div class="col-sm-6 col-lg-6 ">
+        <div class="col-sm-8 col-lg-8 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
@@ -105,7 +105,7 @@
                     <div class="form-group row">
  
                     <div class="col-md-6">
-                    <label for="">Total Keseluruhan Pemasukan</label>
+                    <label for="">Total Keseluruhan Pemasukan :</label>
                         <input type="text" class="form-control" name="pengeluaran" value="<?=$pengeluaranDana?>" hidden>
                         <input type="text" class="form-control" name="sub_total" value="<?=$jumlahhasil1?>" hidden>
                         <input type="text" class="form-control" name="kd_jumlah" value="<?=$jumlahhasil2?>" hidden>
@@ -114,7 +114,7 @@
 
                     </div>  
                     <div class="col-md-6">
-                    <label for="">Total Anggaran Yang Bisa Digunakan</label>
+                    <label for="">75% Dari Pemasukan :</label>
                         <input type="text" class="form-control" name="anggaran" value="<?=$jumlahhasil3?>" hidden>
                         <input type="text" class="form-control" name="" value="<?php echo number_format($jumlahhasil3,2,',','.') ?>" readonly>
 
@@ -124,9 +124,6 @@
                     <div class="form-group">
                         <input type="submit" class="form-control btn btn-success" name="submit" value="Simpan">
                     </div>
-                    <!-- <div class="form-group">
-                        <input type="submit" class="form-control btn btn-warning" name="update" value="Update">
-                    </div> -->
 
                         
                     </td>
@@ -144,8 +141,8 @@
             <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
                 <thead >
                     <tr align="center">
-                        <th width="320px">Total Pemasukan Yang Sudah Tervalidasi</th>
-                        <th width="320px">Total Anggaran Yang Sudah Tervalidasi</th>
+                        <th width="320px">Total Pemasukan Tervalidasi</th>
+                        <th width="320px">Total 75% Pemasukan Tervalidasi</th>
                         <th width="320px">Total Pengeluaran Tervalidasi</th>
                         <th width="110px">Aksi</th>
                     </tr>

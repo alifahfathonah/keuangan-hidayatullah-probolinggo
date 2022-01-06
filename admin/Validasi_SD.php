@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan SD Integral";
-    $lokasi3 = "Validasi Pemasukan SD Integral";
-    $linklokasi2 = "KelolaPelaporan_SD.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi2.php";
     include "fungsi.php";
 
     ini_set('log_errors','On');
@@ -87,11 +87,11 @@
 
 <div class="container-fluid">
 <br>
-    <h2 align="center">Validasi Pemasukan SD Integral </h2>
-
+    <h3 align="center">Validasi Pemasukan SD Integral </h3>
+    <br>
 
     <div class="row justify-content-center">
-        <div class="col-sm-6 col-lg-6 ">
+        <div class="col-sm-8 col-lg-8 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
@@ -113,7 +113,7 @@
 
                     </div>  
                     <div class="col-md-6">
-                    <label for="">Total Anggaran Yang Bisa Digunakan</label>
+                    <label for="">75% Dari Pemasukan :</label>
                         <input type="text" class="form-control" name="anggaran" value="<?=$jumlahhasil3?>" hidden>
                         <!-- <input type="text" class="form-control" name="anggaran" value="<?=$jumlahhasil3?>" hidden> -->
                         <input type="text" class="form-control" name="" value="<?php echo number_format($jumlahhasil3,2,',','.') ?>" readonly>
@@ -125,9 +125,6 @@
                     <div class="form-group">
                         <input type="submit" class="form-control btn btn-success" name="submit" value="Simpan">
                     </div>
-                    <!-- <div class="form-group">
-                        <input type="submit" class="form-control btn btn-warning" name="update" value="Update">
-                    </div> -->
                         
                     </td>
                     </form>
@@ -144,8 +141,8 @@
             <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
                 <thead >
                     <tr align="center">
-                        <th width="320px">Total Pemasukan Yang Sudah Tervalidasi</th>
-                        <th width="320px">Total Anggaran Yang Sudah Tervalidasi</th>
+                        <th width="320px">Total Pemasukan Tervalidasi</th>
+                        <th width="320px">Total 75% Pemasukan Tervalidasi</th>
                         <th width="320px">Total Pengeluaran Tervalidasi</th>
                         <th width="110px">Aksi</th>
                     </tr>

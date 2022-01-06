@@ -1,8 +1,8 @@
 <?php
-    $lokasi1 = "Pengeluaran";
-    $lokasi2 = "Kelola Laporan Pesantren Tahfidz DH";
-    $lokasi3 = "Tambah Data Pesantren Tahfidz DH";
-    $linklokasi2 = "KelolaPelaporan_pengeluaranPesantren.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "../pesantren/template/header.php";   
@@ -17,7 +17,7 @@
     define('WP_DEBUG_LOG', true);
     define('WP_DEBUG_DISPLAY', false);
 
-    $kodetambahpengeluaranPesantren = kodetambahpengeluaranPesantren();
+        $kodetambahpengeluaranPesantren = kodetambahpengeluaranPesantren();
     $kodetambahYayasan = kodetambahYayasan();
 
     $hasil1=mysqli_query($koneksi,"SELECT anggaran FROM db_validasi  where id_usaha = 'DTU005'");
@@ -49,16 +49,16 @@
 ?>
 
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Input Pengeluaran Pesantren Tahfidz DH</h2>
+    <h3 align="center" class="pt-3 pb-3">Input Pengeluaran Pesantren Tahfidz DH</h3>
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data</label>
-                        <input type="text" class="form-control" name="id_data_output" value="<?=$kodetambahpengeluaranPesantren?>" readonly>
-                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahYayasan?>" hidden>
+                        <!-- <label for="">ID Data</label> -->
+                        <input type="text" class="form-control" name="id_data_output" value="<?=$kodetambahpengeluaranPesantren?>" hidden>
+                        <input type="text" class="form-control" name="id_data_input" value="<?=$kodetambahpengeluaranPesantren?>" hidden>
 
                     </div>  
 
@@ -148,8 +148,8 @@
                     <textarea class="form-control" name="kd_keterangan" placeholder="Ketikan Keterangan" rows="3" required></textarea>
                     </div>
                     <div class="form-group ">
-                        <label for="">Tipe</label>
-                        <input type="text" class="form-control" name="" value="PENGELUARAN" readonly>
+                        <!-- <label for="">Tipe</label> -->
+                        <input type="text" class="form-control" name="" value="PENGELUARAN" hidden>
                     </div>
 
                     <div class="form-group">
@@ -171,7 +171,7 @@
                 echo "
                 <script>
                 alert('Pengeluaran Sudah Berhasil Di Tambah');
-                document.location.href = 'EditData_pengeluaranPesantren.php';         
+                document.location.href = 'Kelola_Yayasan.php';         
                 </script>
                 ";
             }   else {

@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan KB - TK Al - Ihsan";
-    $lokasi3 = "Edit Data KB - TK Al - Ihsan";
-    $linklokasi2 = "EditData_TK.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi2.php";
     include "fungsi.php";
 
     $id = $_GET['id'];
@@ -30,8 +30,8 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data Laporan</label>
-                        <input type="text" class="form-control" name="id_data_input" value="<?=$data['id_data_input']?>" readonly>
+                        <!-- <label for="">ID Data Laporan</label> -->
+                        <input type="text" class="form-control" name="id_data_input" value="<?=$data['id_data_input']?>" hidden>
                     </div>  
                     <div class="form-group ">
                         <input type="text" class="form-control" name="id_usaha" value="<?=$data['id_usaha']?>" hidden>

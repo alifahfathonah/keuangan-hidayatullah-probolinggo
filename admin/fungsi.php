@@ -87,11 +87,13 @@
         global $koneksi;
 
         $query1 = "DELETE from db_data_output where id_data_output = '$id' ";
+        $query3 = "DELETE from db_data_input where id_data_input = '$id' ";
         $query2 = "DELETE from db_validasi where id_validasi = 'VAK001' ";
 
 
         mysqli_query($koneksi, $query1);
         mysqli_query($koneksi, $query2);
+        mysqli_query($koneksi, $query3);
 
         return mysqli_affected_rows($koneksi);
     }

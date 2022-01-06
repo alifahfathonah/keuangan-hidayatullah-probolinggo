@@ -7,7 +7,7 @@
 
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi1.php";
     include "fungsi.php";
 
     $id = $_GET['id'];
@@ -30,8 +30,8 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data Laporan</label>
-                        <input type="text" class="form-control" name="id_data_output" value="<?=$data['id_data_output']?>" readonly>
+                        <!-- <label for="">ID Data Laporan</label> -->
+                        <input type="text" class="form-control" name="id_data_output" value="<?=$data['id_data_output']?>" hidden>
                     </div>  
                     <div class="form-group ">
                         <input type="text" class="form-control" name="id_usaha" value="<?=$data['id_usaha']?>" hidden>

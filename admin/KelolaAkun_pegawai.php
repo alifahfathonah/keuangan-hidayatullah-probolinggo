@@ -1,8 +1,8 @@
 <?php
-    $lokasi1 = "Administrasi";
-    $lokasi2 = "Kelola Data Akun";
+    $lokasi1 = "Master";
+    $lokasi2 = "Registrasi Akun";
     $lokasi3 = "";
-    $linklokasi2 = "KelolaAkun_pegawai.php";
+    $linklokasi2 = "registrasi_pegawai.php";
     $linklokasi3 = "";
 
     include "../admin/template/header.php";   
@@ -17,13 +17,10 @@
     ?>  
 
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Akun Unit Usaha Yayasan Al - Ihsan</h2>
+    <h3 align="center" class="pt-3 pb-3">Akun Unit Usaha Yayasan Al - Ihsan</h3>
 
     <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-12 ">
-            
-            <a href="registrasi_pegawai.php" class="btn btn-primary mb-2">Registrasi Akun</a>
-
             <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
                 <thead >
                     <tr align="center">

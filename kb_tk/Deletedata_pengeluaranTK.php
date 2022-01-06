@@ -1,7 +1,7 @@
 <?php
     $lokasi1 = "Pengeluaran";
-    $lokasi2 = "Kelola Laporan KB - TK Al - Ihsan";
-    $lokasi3 = "Delete Data KB - TK Al - Ihsan";
+    $lokasi2 = "Kelola Laporan  KB Integral";
+    $lokasi3 = "Delete Data  KB Integral";
     $linklokasi2 = "";
     $linklokasi3 = "";
 
@@ -26,7 +26,7 @@
     define('WP_DEBUG_LOG', true);
     define('WP_DEBUG_DISPLAY', false);
 
-    $kodevalidasiSD = kodevalidasiSD();
+    $kodevalidasiTK = kodevalidasiTK();
 
     ini_set('log_errors','On');
     ini_set('display_errors','Off');
@@ -35,7 +35,7 @@
     define('WP_DEBUG_LOG', true);
     define('WP_DEBUG_DISPLAY', false);
 
-    $kodetambahpengeluaranTK = kodetambahpengeluaranTK();
+    $kodetambahpengeluaranSD = kodetambahpengeluaranSD();
 
     $hasil1=mysqli_query($koneksi,"SELECT anggaran FROM db_validasi  where id_usaha = 'DTU001'");
     while ($jumlah1=mysqli_fetch_array($hasil1)){
@@ -74,7 +74,7 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <input type="text" class="form-control" name="id_validasi" value="<?=$kodevalidasiSD?>" hidden>
+                        <input type="text" class="form-control" name="id_validasi" value="<?=$kodevalidasiKB?>" hidden>
                         
                     </div>  
 
@@ -153,7 +153,7 @@
     }else {
         echo "
         <script>
-            document.location.href = 'Deletedata_pengeluaranTK.php';
+            document.location.href = 'Deletedata_PengeluaranTK.php';
         </script>
         ";
         echo("<br>");

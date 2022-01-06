@@ -1,13 +1,13 @@
 <?php
     $lokasi1 = "Pemasukan";
     $lokasi2 = "Kelola Laporan Mitra Zakat";
-    $lokasi3 = "Validasi Pemasukan Mitra Zakat";
+    $lokasi3 = "";
     $linklokasi2 = "KelolaPelaporan_MZ.php";
     $linklokasi3 = "";
 
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi2.php";
     include "fungsi.php";
 
     ini_set('log_errors','On');
@@ -86,11 +86,11 @@
 ?>
 <div class="container-fluid">
     <br>
-    <h2 align="center">Validasi Pemasukan Mitra Zakat</h2>
-
+    <h3 align="center">Validasi Pemasukan Mitra Zakat</h3>
+    <br>
 
     <div class="row justify-content-center">
-        <div class="col-sm-6 col-lg-6 ">
+        <div class="col-sm-8 col-lg-8 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">

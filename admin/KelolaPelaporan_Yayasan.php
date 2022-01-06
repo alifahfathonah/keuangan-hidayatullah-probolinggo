@@ -2,14 +2,17 @@
   <?php
   
       $lokasi1 = "Pemasukan";
-      $lokasi2 = "Kelola Laporan Yayasan Al - Ihsan";
-      $lokasi3 = "";
-      $linklokasi2 = "";
-      $linklokasi3 = "";
+      $lokasi2 = "Detail Dana Saving";
+      $lokasi3 = "Unduh Laporan";
+      $lokasi4 = "Validasi";
+      $linklokasi2 = "EditData_Yayasan.php";
+      $linklokasi3 = "Unduh_laporanYayasan.php";
+      $linklokasi4 = "Validasi_Yayasan.php";
 
+      
       include "../admin/template/header.php";   
       include "../admin/template/menu.php";
-      include "../admin/template/lokasi.php";
+      include "../admin/template/lokasi1.php";
       include "../admin/fungsi.php";
 
       ini_set('log_errors','On');
@@ -278,8 +281,9 @@
 
   <div class="container-fluid">
       <div class="col-12 col-s-12">
-          <h2 align="center">Data Pemasukan Yayasan Al - Ihsan</h2>
-          <h2 align="center">Hidayatullah Probolinggo</h2>
+      <br>
+          <h3 align="center">Data Pemasukan Yayasan Al - Ihsan</h3>
+          <h3 align="center">Hidayatullah Probolinggo</h3>
           <br>
 
           <!-- <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p> -->
@@ -287,25 +291,16 @@
       <div class="row justify-content-center">
           <div class="col-sm-12 col-lg-12 ">
               <div style="overflow-x:auto;">
-              <a href="EditData_Yayasan.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-database"></i> Detail Transaksi Dana Saving</a>
-              <a href="Unduh_laporanYayasan.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-print"></i> Unduh Laporan</a>
-              <a href="Validasi_Yayasan.php" class="btn btn btn-success mb-4"><i class="nav-icon fa fa-hand-pointer-o"></i> Validasi</a>
-              <br>
 
-              <table class="table table-striped table-hover table-bordered table-align-middle" id="data"style="width:100%">
+              <table class="table table-bordered" align = "center" id="data">
                   <thead >
-
                   
                   <tr align="center">
                           <td colspan="2"><b>Unit Usaha</b></th>
                           <td colspan="13"><b>Pemasukan</b></th>  
                           <td colspan="13"><b>Pengeluaran</b></th>
                           <td colspan="13"><b>Dana Saving</b></th>
-
-                           
-                      </tr>
-                      
-
+                  </tr>
 
                   </thead>
                   <tbody>
@@ -357,10 +352,11 @@
                       <td colspan="13">Rp. <?php echo number_format($pengeluaranBMH,2,',','.') ?></span></td>
                       <td colspan="13">-</span></td>
                       <tr>
-                      <td colspan="2">DANA SAVING :</b></td>
+                      <td colspan="2">YAYASAN AL - IHSAN :</b></td>
                       <td colspan="13">Rp. <?php echo number_format($totalA,2,',','.') ?></span></td>
                       <td colspan="13">Rp. <?php echo number_format($pengeluaranDana,2,',','.') ?></span></td>
-                      <td colspan="13">Rp. <?php echo number_format($pemasukanSMP - $SMP75 + $pemasukanSD - $SD75 + $pemasukanTK - $TK75 + $pemasukanKB - $KB75 + $pemasukanPesantren - $Pesantren75 + $pemasukanMZ - $MZ75,2,',','.') ?></span></td>
+                      <td colspan="13">-</span></td>
+                      <!-- <td colspan="13">Rp. <?php echo number_format($pemasukanSMP - $SMP75 + $pemasukanSD - $SD75 + $pemasukanTK - $TK75 + $pemasukanKB - $KB75 + $pemasukanPesantren - $Pesantren75 + $pemasukanMZ - $MZ75,2,',','.') ?></span></td> -->
                       <tr>                      
                       <td colspan="15"><b>TOTAL PEMASUKAN UNIT USAHA: </b><b>Rp. <?php echo number_format($pemasukanTOTAL,2,',','.') ?></b></span></td>
                       <td colspan="15"><b>TOTAL PEMASUKAN YAYASAN : </b><b>Rp. <?php echo number_format(($pemasukanSMP - $SMP75 + $pemasukanSD - $SD75 + $pemasukanTK - $TK75 + $pemasukanKB - $KB75 + $pemasukanPesantren - $Pesantren75 + $pemasukanMZ - $MZ75) + $pemasukanyayasan,2,',','.') ?></b></span></td>
@@ -370,15 +366,6 @@
                       <tr>
                       <td colspan="15"><b>SALDO UNIT USAHA : </b><b>Rp. <?php echo number_format($pemasukanTOTAL - $pengeluaranunit - ($pemasukanSMP - $SMP75 + $pemasukanSD - $SD75 + $pemasukanTK - $TK75 + $pemasukanKB - $KB75 + $pemasukanPesantren - $Pesantren75 + $pemasukanMZ - $MZ75),2,',','.') ?></b></span></td>         
                       <td colspan="15"><b>SALDO YAYASAN : </b><b>Rp. <?php echo number_format($totalA,2,',','.') ?></b></span></td>               
-
-
-
-                        <!-- <div class="btn-group">
-                        <td colspan="30"><center><a href="Validasi_Yayasan.php"  class="form-control btn btn-primary">Validasi</a></td>
-                        </div> -->
-
-                    
-
                       
                   </tbody>
                   </table>
@@ -389,126 +376,7 @@
 
 
       </div>
-      
-
-
-
-      
+        
   <?php
       include "template/footer.php";
   ?>
-
-  <!-- <script type="text/javascript">
-      $(document).ready(function () {
-          $('#data').DataTable();
-      });
-  </script> -->
-
-  <!-- <style>
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  th, td {
-    text-align: left;
-    padding: 8px;
-  }
-
-  tr:nth-child(even) {background-color: #f2f2f2;}
-
-  * {
-    box-sizing: border-box;
-  }
-
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-  [class*="col-"] {
-    float: left;
-    padding: 15px;
-  }
-
-  html {
-    font-family: "Lucida Sans", sans-serif;
-  }
-
-  .header {
-    background-color: #9933cc;
-    color: #ffffff;
-    padding: 15px;
-  }
-
-  .menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .menu li {
-    padding: 8px;
-    margin-bottom: 7px;
-    background-color: #33b5e5;
-    color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  }
-
-  .menu li:hover {
-    background-color: #0099cc;
-  }
-
-  .aside {
-    background-color: #33b5e5;
-    padding: 15px;
-    color: #ffffff;
-    text-align: center;
-    font-size: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  }
-
-  .footer {
-    background-color: #0099cc;
-    color: #ffffff;
-    text-align: center;
-    font-size: 12px;
-    padding: 15px;
-  }
-
-  /* For mobile phones: */
-  [class*="col-"] {
-    width: 100%;
-  }
-
-  @media only screen and (min-width: 600px) {
-    /* For tablets: */
-    .col-s-1 {width: 8.33%;}
-    .col-s-2 {width: 16.66%;}
-    .col-s-3 {width: 25%;}
-    .col-s-4 {width: 33.33%;}
-    .col-s-5 {width: 41.66%;}
-    .col-s-6 {width: 50%;}
-    .col-s-7 {width: 58.33%;}
-    .col-s-8 {width: 66.66%;}
-    .col-s-9 {width: 75%;}
-    .col-s-10 {width: 83.33%;}
-    .col-s-11 {width: 91.66%;}
-    .col-s-12 {width: 100%;}
-  }
-  @media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-  </style> -->

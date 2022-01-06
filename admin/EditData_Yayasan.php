@@ -1,8 +1,8 @@
 <?php
     $lokasi1 = "Pemasukan";
     $lokasi2 = "Kelola Laporan Yayasan Al - Ihsan";
-    $lokasi3 = "Edit Data Laporan Yayasan Al - Ihsan";
-    $linklokasi2 = "KelolaPelaporan_TK.php";
+    $lokasi3 = "";
+    $linklokasi2 = "KelolaPelaporan_Yayasan.php";
     $linklokasi3 = "";
 
     include "../admin/template/header.php";   
@@ -23,25 +23,24 @@
     ?>
 
 <div class="container-fluid">
-        <h2 align="center">Detail Pemasukan Dana Saving </h2>
-        <h2 align="center">Yayasan Al - Ihsan Hidayatullah Probolinggo</h2>
+    <br>
+        <h3 align="center">Detail Pemasukan Dana Saving </h3>
+        <h3 align="center">Yayasan Al - Ihsan Hidayatullah Probolinggo</h3>
+    <br>
+
     <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-12 ">
+           <div style="overflow-x:auto;">
 
-            <a href="KelolaPelaporan_Yayasan.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-database"></i> Laporan Transaksi</a>
-            <div style="overflow-x:auto;">
-
-            <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
+            <table class="table table-bordered" align = "center" id="data">
                 <thead >
                     <tr align="center">
                         <th>No</th>
-                        <th width="110px">Nama Kategori</th>
-                        <th width="120px">Bulan </th>
+                        <th width="150px">Nama Kategori</th>
+                        <th width="100px">Bulan </th>
                         <th width="100px">Nominal</th>
-                        <th width="100px">Bukti Transfer</th>
+                        <th width="200px">Bukti Transfer</th>
                         <th width="200px">Keterangan</th>
-
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,11 +55,7 @@
                     <td>Rp <?=number_format($data['kd_jumlah'], 0, ",", ".")?></td>
                     <td><img src="../assets/img/<?=$data['gambar']?>" alt="" height="130" width="100"></td>
                     <td><?=$data['kd_keterangan']?></td>
-                    <td>
-                        <div class="btn-group">
-                            <a href="Deletedata_pemasukanYayasan.php?id=<?=$data['id_data_input']?>" onclick="return confirm('Apakah anda ingin menghapus data ini ?')" class="btn btn-danger"><i class="nav-icon fa fa-trash"></i> Hapus</a>
-                        </div>
-                    </td>
+
                 </tr>
                     <?php } ?>
                 </tbody>

@@ -7,7 +7,7 @@
 
     include "../admin/template/header.php";   
     include "../admin/template/menu.php";
-    include "../admin/template/lokasi.php";
+    include "../admin/template/lokasi2.php";
     include "../admin/fungsi.php";
 
     ini_set('log_errors','On');
@@ -242,11 +242,12 @@
     INNER JOIN db_bulan b ON a.id_bulan = b.id_bulan ORDER BY id_data_input DESC LIMIT 1");
 
     
-    $db_user= query("SELECT a.id_transfer, a.gambar, a.id_status, a.nominal, a.keterangan, b.kd_nama_usaha, d.kd_nama_bulan 
+    $db_user= query("SELECT a.id_transfer, a.gambar, a.id_status, a.nominal, a.keterangan, b.kd_nama_usaha, d.kd_nama_bulan, e.nama_bank 
     FROM db_transfer a 
     
     INNER JOIN db_usaha b ON a.id_usaha = b.id_usaha
     INNER JOIN db_bulan d ON a.id_bulan = d.id_bulan
+    INNER JOIN db_bank e ON a.id_bank = e.id_bank
     ");
 
     ?>
@@ -278,7 +279,7 @@ tr:nth-child(even) {
           <div class="col-sm-6 col-lg-6 ">
           <h2 align="center">Pelaporan Bukti Transfer Unit Usaha</h2>
           <br>
-              <table>
+              <!-- <table>
                   <thead >
                      <tr align="center">
                           <td colspan="2"><b>Unit Usaha</b></th>
@@ -315,7 +316,7 @@ tr:nth-child(even) {
                       <td colspan="2">MITRA ZAKAT :</td>
                       <td colspan="13">Rp. <?php echo number_format($pemasukanMZ - $buktitransferMZ,2,',','.') ?></span></td>                   
                   </tbody>
-                  </table>
+                  </table> -->
                   </div>
               </div>
           </div>
@@ -340,6 +341,7 @@ tr:nth-child(even) {
                         <th>No</th>
                         <th width="150px">Nama Kategori</th>
                         <th width="120px">Bulan </th>
+                        <th width="150px">Nama Bank</th>
                         <th width="150px">Bukti Transfer</th>
                         <th width="100px">Nominal</th>
                         <th width="200px">Keterangan</th>
@@ -366,6 +368,7 @@ tr:nth-child(even) {
                     <td><?=$i++?>.</td>
                     <td><?=$data['kd_nama_usaha']?></td> 
                     <td><?=$data['kd_nama_bulan']?></td>
+                    <td><?=$data['nama_bank']?></td>
                     <td><img src="../assets/img/<?=$data['gambar']?>" alt="" height="130" width="100"></td>
                     <td><?php echo number_format($data['nominal'],2,',','.') ?></td>
                     <td><?=$data['keterangan']?></td>

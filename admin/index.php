@@ -1,13 +1,13 @@
 <?php
     ini_set("display_errors", 0);
        
-    $lokasi1 = "Dashboard";
-    $lokasi2 = "Keseluruhan";
+    $lokasi1 = "";
+    $lokasi2 = "";
     $linklokasi2 = "";
 
     include "../admin/template/header.php";   
     include "../admin/template/menu.php";
-    include "../admin/template/lokasi.php";
+    include "../admin/template/lokasi2.php";
     include "../admin/fungsi.php";
 
 
@@ -115,8 +115,9 @@
     }
     $pengeluaranBMH= array_sum($arrayhasil14);
 
+    
     // Pemasukan TOTAL
-    $hasil15=mysqli_query($koneksi,"SELECT * FROM db_data_input");
+    $hasil15=mysqli_query($koneksi,"SELECT * FROM db_data_input WHERE NOT id_usaha = 'DTU008'");
     while ($jumlah15=mysqli_fetch_array($hasil15)){
     $arrayhasil15[] = $jumlah15['kd_jumlah'];
     }
@@ -142,6 +143,13 @@
     $arrayhasil18[] = $jumlah18['anggaran'];
     }
     $totalB= array_sum($arrayhasil18);
+
+    // Pengeluaran Dana Saving
+    $hasil20=mysqli_query($koneksi,"SELECT * FROM db_data_output where id_usaha = 'DTU008'");
+    while ($jumlah20=mysqli_fetch_array($hasil20)){
+    $arrayhasil20[] = $jumlah20['kd_jumlah'];
+    }
+    $pengeluaranDana= array_sum($arrayhasil20);
 
         
 ?>
@@ -273,8 +281,8 @@
                         <h3><font color='white'>YAYASAN AL - IHSAN</h3></font>
                     </div>
                     <div class="card-body pb-0">
-                        <div class="text-value"><center>Pemasukan : Rp. <b><?=number_format($pemasukanTOTAL, 0, ",", ".")?></b></div>
-                        <div class="text-value"><center>Pengeluaran : Rp. <b><?=number_format($pengeluaranTOTAL, 0, ",", ".")?></b></div>
+                        <div class="text-value"><center>Pemasukan : Rp. <b><?=number_format($totalA, 0, ",", ".")?></b></div>
+                        <div class="text-value"><center>Pengeluaran : Rp. <b><?=number_format($pengeluaranDana, 0, ",", ".")?></b></div>
                     </div>
                     <div class="brand-card-body">
                     </div>

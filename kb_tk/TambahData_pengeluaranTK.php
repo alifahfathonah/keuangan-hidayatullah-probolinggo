@@ -1,8 +1,8 @@
 <?php
-    $lokasi1 = "Pengeluaran";
-    $lokasi2 = "Kelola Laporan KB - TK Al - Ihsan";
-    $lokasi3 = "Tambah Data KB - TK Al - Ihsan";
-    $linklokasi2 = "KelolaPelaporan_pengeluaranTK.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "../kb_tk/template/header.php";   
@@ -48,15 +48,15 @@
 ?>
 
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Input Pengeluaran KB - TK Al - Ihsan</h2>
+    <h3 align="center" class="pt-3 pb-3">Input Pengeluaran KB - TK Al - Ihsan</h3>
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data</label>
-                        <input type="text" class="form-control" name="id_data_output" value="<?=$kodetambahpengeluaranTK?>" readonly>
+                        <!-- <label for="">ID Data</label> -->
+                        <input type="text" class="form-control" name="id_data_output" value="<?=$kodetambahpengeluaranTK?>" hidden>
 
                     </div>  
 
@@ -100,7 +100,7 @@
                     </div>
                     <div class="col-md-4">
                     <label for="">Bulan  </label>
-                        <select name="id_bulan"style="text-align:center;" class="form-control select-dropdown" required>
+                        <select name="id_bulan" class="form-control select-dropdown" required>
                             <option value="" selected disabled>Pilih Bulan  </option>
                             <?php
                             include "../koneksi/koneksi.php";
@@ -146,8 +146,8 @@
                     <textarea class="form-control" name="kd_keterangan" placeholder="Ketikan Keterangan" rows="3" required></textarea>
                     </div>
                     <div class="form-group ">
-                        <label for="">Tipe</label>
-                        <input type="text" class="form-control" name="" value="PENGELUARAN" readonly>
+                        <!-- <label for="">Tipe</label> -->
+                        <input type="text" class="form-control" name="" value="PENGELUARAN" hidden>
                     </div>
 
                     <div class="form-group">

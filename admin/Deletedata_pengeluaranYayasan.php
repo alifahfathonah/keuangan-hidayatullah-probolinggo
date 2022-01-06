@@ -1,14 +1,13 @@
 <?php
     $lokasi1 = "Pengeluaran";
-    $lokasi2 = "Kelola Laporan Yayasan Al - Ihsan";
-    $lokasi3 = "Delete Data Yayasan Al - Ihsan";
+    $lokasi2 = "Kelola Laporan  KB Integral";
+    $lokasi3 = "Delete Data  KB Integral";
     $linklokasi2 = "";
     $linklokasi3 = "";
 
-
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi2.php";
     include "fungsi.php";
 
     $id = $_GET['id'];
@@ -27,7 +26,7 @@
     define('WP_DEBUG_LOG', true);
     define('WP_DEBUG_DISPLAY', false);
 
-    $kodevalidasiYayasan = kodevalidasiYayasan();
+    $kodevalidasiKB = kodevalidasiKB();
 
     ini_set('log_errors','On');
     ini_set('display_errors','Off');
@@ -36,28 +35,28 @@
     define('WP_DEBUG_LOG', true);
     define('WP_DEBUG_DISPLAY', false);
 
-    $kodetambahpengeluaranYayasan = kodetambahpengeluaranYayasan();
+    $kodetambahpengeluaranSD = kodetambahpengeluaranSD();
 
-    $hasil1=mysqli_query($koneksi,"SELECT anggaran FROM db_validasi  where id_usaha = 'DTU008'");
+    $hasil1=mysqli_query($koneksi,"SELECT anggaran FROM db_validasi  where id_usaha = 'DTU002'");
     while ($jumlah1=mysqli_fetch_array($hasil1)){
     $arrayhasil1[] = $jumlah1['anggaran'];
     }
     $jumlahhasil1 = array_sum($arrayhasil1);
 
-    $hasil2=mysqli_query($koneksi,"SELECT * FROM db_validasi where id_usaha = 'DTU008'");
+    $hasil2=mysqli_query($koneksi,"SELECT * FROM db_validasi where id_usaha = 'DTU002'");
     while ($jumlah2=mysqli_fetch_array($hasil2)){
     $arrayhasil2[] = $jumlah2['sub_total'];
     }
     $jumlahhasil2 = array_sum($arrayhasil2);
     
-    $hasil3=mysqli_query($koneksi,"SELECT SUM(anggaran) AS totalkeseluruhan FROM db_validasi where id_usaha = 'DTU008'");
+    $hasil3=mysqli_query($koneksi,"SELECT SUM(anggaran) AS totalkeseluruhan FROM db_validasi where id_usaha = 'DTU002'");
     while ($jumlah3=mysqli_fetch_array($hasil3)){
     $arrayhasil3[] = $jumlah3['totalkeseluruhan'];
     }
     $jumlahhasil3 = array_sum($arrayhasil3);
 
 
-    $hasil4=mysqli_query($koneksi,"SELECT anggaran * 0.75 AS totalkeseluruhan FROM db_validasi where id_usaha = 'DTU008'");
+    $hasil4=mysqli_query($koneksi,"SELECT anggaran * 0.80 AS totalkeseluruhan FROM db_validasi where id_usaha = 'DTU002'");
     while ($jumlah4=mysqli_fetch_array($hasil4)){
     $arrayhasil4[] = $jumlah4['totalkeseluruhan'];
     }
@@ -75,7 +74,7 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <input type="text" class="form-control" name="id_validasi" value="<?=$kodevalidasiYayasan?>" hidden>
+                        <input type="text" class="form-control" name="id_validasi" value="<?=$kodevalidasiKB?>" hidden>
                         
                     </div>  
 
@@ -88,8 +87,8 @@
 
                     
                     <div class="form-group ">
-                        <label for="">ID Data Laporan</label>
-                        <input type="text" class="form-control" name="id_data_output" value="<?=$data['id_data_output']?>" readonly>
+                        <!-- <label for="">ID Data Laporan</label> -->
+                        <input type="text" class="form-control" name="id_data_output" value="<?=$data['id_data_output']?>" hidden>
                     </div>  
                     <div class="form-group ">
                         <input type="text" class="form-control" name="" value="<?=$data['id_usaha']?>" hidden>
@@ -143,12 +142,12 @@
     include "template/footer.php";
 
     if (isset($_POST['submit'])) {
-        if (deletepengeluaranYayasan($id) > 0) {
-    } if (DeleteValidasiYayasan($_POST) > 0){
+        if (deletepengeluaranKB($id) > 0) {
+    } if (DeleteValidasiKB($_POST) > 0){
         echo "
         <script>
         alert('Data Pengeluaran Berhasil Di Hapus');
-        document.location.href = 'EditData_pengeluaranYayasan.php';
+        document.location.href = 'Kelola_YayasanKB.php';
         </script>
         ";
     }else {

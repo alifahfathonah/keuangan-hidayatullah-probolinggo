@@ -1,8 +1,8 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan Mitra BMH";
-    $lokasi3 = "Tambah Data Mitra BMH";
-    $linklokasi2 = "KelolaPelaporan_BMH.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
     
     include "../smp_integral/template/header.php";   
@@ -19,43 +19,43 @@
 
     $kodetambahbukti = kodetambahBukti();
 
-    // Bukti Transfer SMP
-    $hasil53=mysqli_query($koneksi,"SELECT * FROM db_transfer where id_usaha = 'DTU004'");
-    while ($jumlah53=mysqli_fetch_array($hasil53)){
-    $arrayhasil53[] = $jumlah53['nominal'];
+    //transfer
+    $hasil2=mysqli_query($koneksi,"SELECT * FROM db_transfer where id_usaha = 'DTU004'");
+    while ($jumlah2=mysqli_fetch_array($hasil2)){
+    $arrayhasil2[] = $jumlah2['nominal'];
     }
-    $buktitransferSMP = array_sum($arrayhasil53);   
+    $jumlahhasil2 = array_sum($arrayhasil2);
 
-    // Pemasukan SMP
+    //Pemasukan Keseluruhan
     $hasil1=mysqli_query($koneksi,"SELECT * FROM db_data_input where id_usaha = 'DTU004'");
     while ($jumlah1=mysqli_fetch_array($hasil1)){
     $arrayhasil1[] = $jumlah1['kd_jumlah'];
     }
-    $pemasukanSMP = array_sum($arrayhasil1); 
+    $jumlahhasil1 = array_sum($arrayhasil1);
 
-    // Pemasukan 75% SMP
-    $hasil21=mysqli_query($koneksi,"SELECT SUM(kd_jumlah) * 0.75 AS keseluruhan FROM db_data_input where id_usaha = 'DTU004'");
-    while ($jumlah21=mysqli_fetch_array($hasil21)){
-    $arrayhasil21[] = $jumlah21['keseluruhan'];
+    //75 Persen
+    $hasil3=mysqli_query($koneksi,"SELECT SUM(kd_jumlah) * 0.75 AS totalkeseluruhan FROM db_data_input  where id_usaha = 'DTU004'");
+    while ($jumlah3=mysqli_fetch_array($hasil3)){
+    $arrayhasil3[] = $jumlah3['totalkeseluruhan'];
     }
-    $SMP75 = array_sum($arrayhasil21);    
+    $jumlahhasil3 = array_sum($arrayhasil3);       
 
 ?>
 
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Bukti Transfer Unit Usaha</h2>
+    <h3 align="center" class="pt-3 pb-3">Bukti Transfer Unit Usaha</h3>
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data</label>
-                        <input type="text" class="form-control" name="id_transfer" value="<?=$kodetambahbukti?>" readonly>
+                        <!-- <label for="">ID Data</label> -->
+                        <input type="text" class="form-control" name="id_transfer" value="<?=$kodetambahbukti?>" hidden>
                     </div>  
                     <div class="form-group ">
                         <label for="">Saldo</label>
-                        <input type="text" class="form-control" name="" value="<?php echo number_format($pemasukanSMP - $buktitransferSMP,2,',','.') ?>" readonly>
+                        <input type="text" class="form-control" name="" value="<?php echo number_format($jumlahhasil1 - $jumlahhasil3 - $jumlahhasil2,2,',','.') ?>" readonly>
                     </div>
 
                     <div class="form-group row">
@@ -79,22 +79,19 @@
                     </select>
                     </div>
                     <div class="col-md-6">
-                    <div class="form-group ">
-                    <label for="">Nominal :</label>
-                        <input type="text" class="form-control" name="kd_jumlah" required>
-
+                    <label for="">Bank :</label>
+                        <select name="id_bank" class="form-control select-dropdown" required>
+                            <option value="" selected disabled>Pilih Bank  </option>
+                            <?php
+                            include "../koneksi/koneksi.php";
+                            $query = mysqli_query($koneksi, "SELECT * FROM db_bank ");
+                            while ($show = mysqli_fetch_assoc($query)) {
+                                echo "<option value='$show[id_bank]'>$show[nama_bank]</option>";
+                            }
+                            ?>
+                    </select>
                     </div>
-                    </div>
 
-
-                    <script>
-                        function hanyaAngka(event) {
-                            var kd_jumlah = (event.which) ? event.which : event.keyCode
-                            if (kd_jumlah != 46 && kd_jumlah > 31 && (kd_jumlah < 48 || kd_jumlah > 57))
-                                return false;
-                            return true;
-                        }
-                    </script> 
 
                     <div class="col-md-6">
                         <label for="tempat">Bukti Transfer</label>
@@ -106,16 +103,18 @@
                     <br>
                     </div>
                     
-                 
+                    <div class="form-group ">
+                    <label for="">Nominal :</label>
+                        <input type="number" class="form-control" placeholder="Ketikan Nominal" name="kd_jumlah" required>
+                    </div>
                    
                     <div class="form-group ">
-
                     <label for="exampleFormControlTextarea1" class="form-label">Keterangan :</label>
                     <textarea class="form-control" name="kd_keterangan" placeholder="Ketikan Keterangan" rows="3" required></textarea>
                     </div>
                     <div class="form-group ">
-                        <label for="">Status</label>
-                        <input type="text" class="form-control" style="color:red" name="" value="MENUNGGU" readonly>
+                        <!-- <label for="">Status</label> -->
+                        <input type="text" class="form-control" style="color:red" name="" value="MENUNGGU" hidden>
                     </div>
 
                     <div class="form-group">

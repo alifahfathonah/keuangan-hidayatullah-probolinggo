@@ -1,13 +1,13 @@
 <?php
     $lokasi1 = "Pemasukan";
     $lokasi2 = "Kelola Laporan Yayasan Al - Ihsan";
-    $lokasi3 = "Validasi Pemasukan Yayasan Al - Ihsan";
+    $lokasi3 = "";
     $linklokasi2 = "KelolaPelaporan_Yayasan.php";
     $linklokasi3 = "";
 
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi2.php";
     include "fungsi.php";
 
     ini_set('log_errors','On');
@@ -219,13 +219,13 @@
 
 
 ?>
-<div class="container-fluid">
-<br>
-    <h2 align="center">Validasi Pemasukan Yayasan </h2>
-
+<div class="container-fluid">   
+    <br>
+    <h3 align="center">Validasi Pemasukan Yayasan </h3>
+    <br>
 
     <div class="row justify-content-center">
-        <div class="col-sm-6 col-lg-6 ">
+        <div class="col-sm-8 col-lg-8 ">
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
@@ -237,19 +237,17 @@
                     <div class="form-group row">
  
                     <div class="col-md-6">
-                    <label for="">Total Keseluruhan Pemasukan</label>
+                    <label for="">Pemasukan Dana Saving Unit Usaha:</label>
                         <input type="text" class="form-control" name="sub_total" value="<?=$pemasukanSMP - $SMP75 + $pemasukanSD - $SD75 + $pemasukanTK - $TK75 + $pemasukanKB - $KB75 + $pemasukanPesantren - $Pesantren75 + $pemasukanMZ - $MZ75?>" hidden>
                         <input type="text" class="form-control" name="" value="<?php echo number_format($pemasukanSMP - $SMP75 + $pemasukanSD - $SD75 + $pemasukanTK - $TK75 + $pemasukanKB - $KB75 + $pemasukanPesantren - $Pesantren75 + $pemasukanMZ - $MZ75,2,',','.') ?>" readonly>
-
                     </div>  
                     <div class="col-md-6">
-                    <label for="">Pemasukan Dari Unit Usaha</label>
+                    <label for="">Pemasukan Sisa Saldo / Infaq Anggota :</label>
                         <input type="text" class="form-control" name="pemasukan" value="<?=$penambahanDana?>" hidden>
                         <input type="text" class="form-control" name="" value="<?php echo number_format($penambahanDana,2,',','.') ?>" readonly>
-
                     </div>  
                     <div class="col-md-12">
-                    <label for="">Pengeluaran Yayasan Al - Ihsan</label>
+                    <label for="">Pengeluaran Yayasan Al - Ihsan : </label>
                         <input type="text" class="form-control" name="pengeluaran" value="<?=$pengeluaranDana?>" hidden>
                         <input type="text" class="form-control" name="" value="<?php echo number_format($pengeluaranDana,2,',','.') ?>" readonly>
                     </div>  
@@ -278,9 +276,9 @@
             <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
                 <thead >
                     <tr align="center">
-                        <th width="320px">Total Pemasukan Yang Sudah Tervalidasi</th>
-                        <th width="320px">Total Pengeluaran Tervalidasi</th>
-                        <th width="110px">Aksi</th>
+                        <th width="200px">Total Pemasukan Tervalidasi</th>
+                        <th width="200px">Total Pengeluaran Tervalidasi</th>
+                        <th width="100px">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>

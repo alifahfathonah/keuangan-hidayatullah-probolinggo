@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan Mitra Zakat";
-    $lokasi3 = "Edit Data Laporan Mitra Zakat";
+    $lokasi1 = "Menu";
+    $lokasi2 = "Laporan Transaksi";
+    $lokasi3 = "Tambah Transaksi";
     $linklokasi2 = "KelolaPelaporan_MZ.php";
-    $linklokasi3 = "";
+    $linklokasi3 = "TambahData_MZ.php";
 
     include "../mitra_zakat/template/header.php";   
     include "../mitra_zakat/template/menu.php";
-    include "../mitra_zakat/template/lokasi.php";
+    include "../mitra_zakat/template/lokasi1.php";
     include "../mitra_zakat/fungsi.php";
 
     $db_user= query("SELECT a.id_data_input, a.gambar, a.id_pp, a.kd_jumlah, a.kd_keterangan, b.kd_nama_usaha, c.nama_kategori, d.kd_nama_bulan 
@@ -23,17 +23,16 @@
     ?>
 
 <div class="container-fluid">
-        <h2 align="center">Detail Pemasukan Mitra Zakat</h2>
-        <h2 align="center">Hidayatullah Probolinggo</h2>
-    <div class="row justify-content-center">
-        <div class="col-sm-12 col-lg-12 ">
+    <br>
+        <h3 align="center">Detail Pemasukan Mitra Zakat</h3>
+        <h3 align="center">Hidayatullah Probolinggo</h3>
+    <br>
 
-            <a href="KelolaPelaporan_MZ.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-database"></i> Laporan Transaksi</a>
-            <a href="TambahData_MZ.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-cart-plus"></i> Tambah Transaksi</a>
-            
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-lg-12 ">   
             <div style="overflow-x:auto;">
 
-            <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
+            <table class="table table-bordered" align = "center" id="data">
                 <thead >
                     <tr align="center">
                         <th>No</th>

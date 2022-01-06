@@ -1,21 +1,23 @@
 <?php
-    $lokasi1 = "Pemasukan";
-    $lokasi2 = "Kelola Laporan Mitra BMH";
-    $lokasi3 = "Edit Data Mitra BMH";
-    $linklokasi2 = "EditData_BMH.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi2.php";
     include "fungsi.php";
 
     $id = $_GET['id'];
-    $data = query("SELECT a.id_transfer, a.gambar, a.id_status, a.nominal, a.keterangan, b.id_usaha, b.kd_nama_usaha, d.id_bulan, d.kd_nama_bulan 
+    $data = query("SELECT a.id_transfer, a.gambar, a.id_status, a.nominal, a.keterangan, b.id_usaha, b.kd_nama_usaha, d.id_bulan, d.kd_nama_bulan, e.nama_bank, a.id_bank 
     FROM db_transfer a 
     
     INNER JOIN db_usaha b ON a.id_usaha = b.id_usaha
     INNER JOIN db_bulan d ON a.id_bulan = d.id_bulan
+    INNER JOIN db_bank e ON a.id_bank = e.id_bank
+
     WHERE a.id_transfer = '$id'")[0];   
 
 
@@ -29,9 +31,14 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Bukti Transfer</label>
-                        <input type="text" class="form-control" name="id_transfer" value="<?=$data['id_transfer']?>" readonly>
+                        <!-- <label for="">ID Bukti Transfer</label> -->
+                        <input type="text" class="form-control" name="id_transfer" value="<?=$data['id_transfer']?>" hidden>
                     </div>  
+                    <div class="form-group ">
+                        <label for="">Nama Bank</label>
+                        <input type="text" class="form-control" name="id_bank" value="<?=$data['id_bank']?>" hidden>
+                        <input type="text" class="form-control" name="" value="<?=$data['nama_bank']?>" readonly>
+                    </div> 
                     <div class="form-group row">
                     <div class="col-md-6">
                         <label for="">Usaha Unit</label>

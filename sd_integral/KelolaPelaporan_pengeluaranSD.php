@@ -1,13 +1,13 @@
   <?php
-      $lokasi1 = "Pengeluaran";
-      $lokasi2 = "Kelola Laporan SD Integral";
-      $lokasi3 = "";
-      $linklokasi2 = "";
-      $linklokasi3 = "";
+      $lokasi1 = "Menu";
+      $lokasi2 = "Detail Transaksi";
+      $lokasi3 = "Unduh Laporan";
+      $linklokasi2 = "EditData_pengeluaranSD.php";
+      $linklokasi3 = "Unduh_laporanpengeluaranSD.php";
 
       include "../sd_integral/template/header.php";   
       include "../sd_integral/template/menu.php";
-      include "../sd_integral/template/lokasi.php";
+      include "../sd_integral/template/lokasi1.php";
       include "../sd_integral/fungsi.php";
   
 
@@ -65,21 +65,19 @@
 
   <div class="container-fluid">
       <div class="col-12 col-s-12">
-          <h2 align="center">Transaksi Pengeluaran SD Integral</h2>
-          <h2 align="center">Hidayatullah Probolinggo</h2>
+      <br>
+          <h3 align="center">Transaksi Pengeluaran SD Integral</h3>
+          <h3 align="center">Hidayatullah Probolinggo</h3>
           <br>
 
       </div>
       <div class="row justify-content-center">
           <div class="col-sm-12 col-lg-12 ">
-              <a href="EditData_pengeluaranSD.php"  class="btn btn-primary mb-4"><i class="nav-icon fa fa-database"></i> Detail Transaksi</a>
-              <a href="Unduh_laporanpengeluaranSD.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-print"></i> Unduh Laporan</a>
         </div> 
     </div>
-        
-              <br>
+    
               <div style="overflow-x:auto;">
-              <table class="table table-striped table-hover table-bordered table-align-middle" id="data"style="width:100%">
+              <table class="table table-bordered" align = "center" id="data">
                   <thead >
 
                   

@@ -74,10 +74,13 @@
 
         $query1 = "DELETE from db_data_output where id_data_output = '$id' ";
         $query2 = "DELETE from db_validasi where id_validasi = 'VAP001' ";
+        $query3 = "DELETE from db_data_input where id_data_input = '$id' ";
+
 
 
         mysqli_query($koneksi, $query1);
         mysqli_query($koneksi, $query2);
+        mysqli_query($koneksi, $query3);
 
         return mysqli_affected_rows($koneksi);
     }
@@ -88,10 +91,13 @@
 
         $query1 = "DELETE from db_data_output where id_data_output = '$id' ";
         $query2 = "DELETE from db_validasi where id_validasi = 'VAK001' ";
+        $query3 = "DELETE from db_data_input where id_data_input = '$id' ";
+
 
 
         mysqli_query($koneksi, $query1);
         mysqli_query($koneksi, $query2);
+        mysqli_query($koneksi, $query3);
 
         return mysqli_affected_rows($koneksi);
     }
@@ -1306,6 +1312,7 @@
 
     $id_transfer = htmlspecialchars($data['id_transfer']);
     $id_bulan = htmlspecialchars($data['id_bulan']);
+    $id_bank = htmlspecialchars($data['id_bank']);
     $kd_keterangan = htmlspecialchars($data['kd_keterangan']); 
     $kd_jumlah = htmlspecialchars($data['kd_jumlah']); 
 
@@ -1315,7 +1322,7 @@
     }
 
     //tambah data
-    $query = "INSERT INTO db_transfer VALUES ('$id_transfer', 'DTU005', '$id_bulan', '1', '$kd_jumlah', '$gambar', '$kd_keterangan')";
+    $query = "INSERT INTO db_transfer VALUES ('$id_transfer', 'DTU005', '$id_bulan', '1', '$id_bank', '$kd_jumlah', '$gambar', '$kd_keterangan')";
     $data = mysqli_query($koneksi, $query);
     
     // var_dump($data);

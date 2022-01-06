@@ -8,6 +8,7 @@
    include "../admin/fungsi.php";
 
 
+
     ini_set('log_errors','On');
       ini_set('display_errors','Off');
       ini_set('error_reporting', E_ALL );
@@ -64,35 +65,55 @@
 
 <!DOCTYPE html>
     <html>
-    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style>
-    table, th, td {
-    border: 2px solid black;
-    
-        } 
+    <style type="text/css">
+	body{
+		font-family: sans-serif;
+	}
+	table{
+		margin: 20px auto;
+		border-collapse: collapse;
+	}
+	table th,
+	table td{
+		border: 1px solid #3c3c3c;
+		padding: 3px 8px;
+ 
+	}
+	a{
+		background: blue;
+		color: #fff;
+		padding: 8px 10px;
+		text-decoration: none;
+		border-radius: 2px;
+	}
+	</style>
 
     </style>
     </head>
     <body>
 
-<div class="container-fluid">
+    <center>
+    <h3>DATA PEMASUKAN KB - TK<br/>HIDAYATULLAH PROBOLINGGO</h3>
+	  </center>
 
-    <p><center>DATA PEMASUKAN KB - TK Al - IHSAN</center>
-    <center>HIDAYATULLAH PROBOLINGGO</center></p>
-
-    <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
-                <thead >
-                <tr align="center">
-                          <th rowspan="2">No</th>
+    <div class="row justify-content-center">
+          <div class="col-sm-12 col-lg-12 ">
+            
+              <br>
+              <div style="overflow-x:auto;">
+              <table class="table table-striped table-hover table-bordered table-align-middle" id="data"style="width:100%">
+                  <thead >
+                    <tr align="center">
+                    <th rowspan="2">No</th>
                           <th rowspan="2" width="200px">Kategori</th>
                           <th colspan="12" width="110px">Bulan</th>  
                           <th rowspan="2" width="200px">Total 1 Tahun</th>
+                        
+                    </tr>
 
-                           
+                        
                       </tr>
-
-                      </tr>
-                        <tr align="center">
+                      <tr align="center">
                         <th>1</th>
                         <th>2</th>
                         <th>3</th>
@@ -105,15 +126,15 @@
                         <th>10</th>
                         <th>11</th>
                         <th>12</th>
-                      </tr>
-                </thead>
-                        
-                <?php
-                        $i = 1;
-                        foreach ($db_data as $data) {
+                    </tr>
 
-                ?>
-                    <tr align="center">
+                </thead>
+                <tbody>
+                    <?php
+                    $i = 1;
+                    foreach ($db_data as $data) {
+                        ?>
+              <tr align="center">
                       <td><?=$i++?></td>
                       <td><?=$data['nama_kategori']?></td>
                       <td> <?=number_format($data['bulan1'], 0, ",", ".")?></td>
@@ -144,9 +165,8 @@
                         ?>
                         <p align=right><b>Laporan Bulan     : <?=$data1['kd_nama_bulan']?></b>
                         <?php } ?>
-                      
                     </table>
-                </div>
             </div>
         </div>
+    </div>
 

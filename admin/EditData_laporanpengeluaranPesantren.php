@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Pengeluaran";
-    $lokasi2 = "Kelola Laporan Pesantren Tahfidz DH";
-    $lokasi3 = "Edit Data Pesantren Tahfidz DH";
-    $linklokasi2 = "EditData_pengeluaranPesantren.php";
+    $lokasi1 = "";
+    $lokasi2 = "";
+    $lokasi3 = "";
+    $linklokasi2 = "";
     $linklokasi3 = "";
 
     include "template/header.php";   
     include "template/menu.php";
-    include "template/lokasi.php";
+    include "template/lokasi2.php";
     include "fungsi.php";
 
     $id = $_GET['id'];
@@ -22,7 +22,7 @@
 
 ?>
 <div class="container-fluid">
-    <h2 align="center" class="pt-3 pb-3">Edit Data Laporan Pengeluaran Pesantren Tahfidz DH</h2>
+    <h3 align="center" class="pt-3 pb-3">Edit Data Laporan Pengeluaran Pesantren Tahfidz DH</h3>
 
     <div class="row justify-content-center">
         <div class="col-sm-6 col-lg-12 ">
@@ -30,8 +30,8 @@
                 <div class="card-body">
                     <form action="" method="post" class="form-horizontal" name="tambahbarang" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label for="">ID Data Laporan</label>
-                        <input type="text" class="form-control" name="id_data_output" value="<?=$data['id_data_output']?>" readonly>
+                        <!-- <label for="">ID Data Laporan</label> -->
+                        <input type="text" class="form-control" name="id_data_output" value="<?=$data['id_data_output']?>" hidden>
                     </div>  
                     <div class="form-group ">
                         <input type="text" class="form-control" name="id_usaha" value="<?=$data['id_usaha']?>" hidden>

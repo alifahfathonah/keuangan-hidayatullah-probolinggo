@@ -1,13 +1,15 @@
 <?php
-    $lokasi1 = "Pengeluaran";
-    $lokasi2 = "Kelola Laporan Mitra Zakat";
-    $lokasi3 = "Edit Data Laporan Mitra Zakat";
+    $lokasi1 = "Menu";
+    $lokasi2 = "Laporan Transaksi";
+    $lokasi3 = "Tambah Transaksi";
+    $lokasi4 = "Yayasan";
     $linklokasi2 = "KelolaPelaporan_pengeluaranMZ.php";
-    $linklokasi3 = "";
+    $linklokasi3 = "TambahData_pengeluaranMZ.php";
+    $linklokasi4 = "Kelola_Yayasan.php";
 
     include "../mitra_zakat/template/header.php";   
     include "../mitra_zakat/template/menu.php";
-    include "../mitra_zakat/template/lokasi.php";
+    include "../mitra_zakat/template/lokasi2.php";
     include "../mitra_zakat/fungsi.php";
 
 
@@ -26,25 +28,22 @@
     INNER JOIN db_usaha b ON a.id_usaha = b.id_usaha
     INNER JOIN db_kategori_pengeluaran c ON a.id_kategori = c.id_kategori
     INNER JOIN db_bulan d ON a.id_bulan = d.id_bulan
-    WHERE a.id_pp = 2 AND a.id_usaha = 'DTU006'
+    WHERE a.id_pp = 2 AND a.id_usaha = 'DTU006' AND NOT c.id_kategori BETWEEN 'KAP086' AND 'KAP087'
     ");
 
 
     ?>
 
 <div class="container-fluid">
-        <h2 align="center">Detail Pengeluaran Mitra Zakat</h2>
-        <h2 align="center">Hidayatullah Probolinggo</h2>
-    <div class="row justify-content-center">
+    <br>
+        <h3 align="center">Detail Pengeluaran Mitra Zakat</h3>
+        <h3 align="center">Hidayatullah Probolinggo</h3>
+        <br>
+        <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-12 ">
-
-            <a href="KelolaPelaporan_pengeluaranMZ.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-database"></i> Laporan Transaksi</a>
-            <a href="TambahData_pengeluaranMZ.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-cart-plus"></i> Tambah Transaksi</a>
-            <a href="TambahData_saldoMZ.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-bookmark"></i> Yayasan</a>
-            
             <div style="overflow-x:auto;">
 
-            <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
+            <table class="table table-bordered" align = "center" id="data">
                 <thead >
                     <tr align="center">
                         <th>No</th>

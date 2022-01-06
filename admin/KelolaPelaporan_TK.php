@@ -1,9 +1,9 @@
   <?php
       $lokasi1 = "Pemasukan";
-      $lokasi2 = "Kelola Laporan KB - TK Al - Ihsan";
-      $lokasi3 = "";
-      $linklokasi2 = "";
-      $linklokasi3 = "";
+      $lokasi2 = "Detail Transaksi";
+      $lokasi3 = "Unduh Laporan";
+      $linklokasi2 = "EditData_TK.php";
+      $linklokasi3 = "Unduh_laporanTK.php";
 
       include "../admin/template/header.php";   
       include "../admin/template/menu.php";
@@ -67,19 +67,15 @@
 
   <div class="container-fluid">
       <div class="col-12 col-s-12">
-          <h2 align="center">Transaksi Pemasukan KB - TK Al - Ihsan</h2>
-          <h2 align="center">Hidayatullah Probolinggo</h2>
-          <br>
-
-          <!-- <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p> -->
-      </div>
+      <br>
+          <h3 align="center">Pemasukan KB - TK Al - Ihsan</h3>
+          <h3 align="center">Hidayatullah Probolinggo</h3>
+        <br>
+ </div>
       <div class="row justify-content-center">
           <div class="col-sm-12 col-lg-12 ">
-              <a href="EditData_TK.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-database"></i> Detail Transaksi</a>
-              <a href="Unduh_laporanTK.php" class="btn btn-primary mb-4"><i class="nav-icon fa fa-print"></i> Unduh Laporan</a>
-              <br>
               <div style="overflow-x:auto;">
-              <table class="table table-striped table-hover table-bordered table-align-middle" id="data"style="width:100%">
+              <table class="table table-bordered" align = "center" id="data">
                   <thead >
 
                   

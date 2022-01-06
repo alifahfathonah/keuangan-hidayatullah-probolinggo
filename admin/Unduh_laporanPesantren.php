@@ -64,23 +64,43 @@
 
 <!DOCTYPE html>
     <html>
-    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style>
-    table, th, td {
-    border: 2px solid black;
-    
-        } 
+    <style type="text/css">
+	body{
+		font-family: sans-serif;
+	}
+	table{
+		margin: 20px auto;
+		border-collapse: collapse;
+	}
+	table th,
+	table td{
+		border: 1px solid #3c3c3c;
+		padding: 3px 8px;
+ 
+	}
+	a{
+		background: blue;
+		color: #fff;
+		padding: 8px 10px;
+		text-decoration: none;
+		border-radius: 2px;
+	}
+	</style>
 
     </style>
     </head>
     <body>
 
-<div class="container-fluid">
+    <center>
+    <h3>DATA PEMASUKAN PESANTREN TAHFIDZ DH<br/>HIDAYATULLAH PROBOLINGGO</h3>
+	  </center>
 
-    <p><center>DATA PEMASUKAN PESANTREN TAHFIDZ DH</center>
-    <center>HIDAYATULLAH PROBOLINGGO</center></p>
-
-    <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
+    <div class="row justify-content-center">
+          <div class="col-sm-12 col-lg-12 ">
+            
+              <br>
+              <div style="overflow-x:auto;">
+              <table class="table table-striped table-hover table-bordered table-align-middle" id="data"style="width:100%">
                 <thead >
                 <tr align="center">
                           <th rowspan="2">No</th>
@@ -149,4 +169,3 @@
                 </div>
             </div>
         </div>
-

@@ -1,9 +1,9 @@
 <?php
     $lokasi1 = "Pengeluaran";
-    $lokasi2 = "Kelola Laporan KB - TK Al - Ihsan";
-    $lokasi3 = "Edit Data Laporan KB - TK Al - Ihsan";
+    $lokasi2 = "Laporan Transaksi";
+    $lokasi3 = "Tambah Transaksi";
     $linklokasi2 = "KelolaPelaporan_pengeluaranTK.php";
-    $linklokasi3 = "";
+    $linklokasi3 = "TambahData_pengeluaranTK.php";
 
     include "../admin/template/header.php";   
     include "../admin/template/menu.php";
@@ -25,24 +25,23 @@
     INNER JOIN db_usaha b ON a.id_usaha = b.id_usaha
     INNER JOIN db_kategori_pengeluaran c ON a.id_kategori = c.id_kategori
     INNER JOIN db_bulan d ON a.id_bulan = d.id_bulan
-    WHERE a.id_pp = 2 AND a.id_usaha = 'DTU001'
+    WHERE a.id_pp = 2 AND a.id_usaha = 'DTU001' AND NOT c.id_kategori BETWEEN 'KAP079' AND 'KAP080'
     ");
 
 
     ?>
 
 <div class="container-fluid">
-        <h2 align="center">Detail Pengeluaran KB - TK Al - Ihsan</h2>
-        <h2 align="center">Hidayatullah Probolinggo</h2>
+    <br>
+        <h3 align="center">Detail Pengeluaran KB - TK Al - Ihsan</h3>
+        <h3 align="center">Hidayatullah Probolinggo</h3>
+    <br>
+
     <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-12 ">
+       <div style="overflow-x:auto;">
 
-            <a href="KelolaPelaporan_pengeluaranTK.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-database"></i> Laporan Transaksi</a>
-            <a href="TambahData_pengeluaranTK.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-cart-plus"></i> Tambah Transaksi</a>
-            <a href="TambahData_saldoTK.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-bookmark"></i> Yayasan</a>
-            <div style="overflow-x:auto;">
-
-            <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
+            <table class="table table-bordered" align = "center" id="data">
                 <thead >
                     <tr align="center">
                         <th>No</th>

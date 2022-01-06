@@ -1,13 +1,13 @@
 <?php
-    $lokasi1 = "Administrasi";
-    $lokasi2 = "Kelola Laporan SMP Integral";
-    $lokasi3 = "Edit Data Laporan SMP Integral";
+    $lokasi1 = "Menu";
+    $lokasi2 = "Laporan Transaksi";
+    $lokasi3 = "Tambah Transaksi";
     $linklokasi2 = "KelolaPelaporan_SMP.php";
-    $linklokasi3 = "";
+    $linklokasi3 = "TambahData_SMP.php";
 
     include "../smp_integral/template/header.php";   
     include "../smp_integral/template/menu.php";
-    include "../smp_integral/template/lokasi.php";
+    include "../smp_integral/template/lokasi1.php";
     include "../smp_integral/fungsi.php";
 
     $db_user= query("SELECT a.id_data_input, a.gambar, a.id_pp, a.kd_jumlah, a.kd_keterangan, b.kd_nama_usaha, c.nama_kategori, d.kd_nama_bulan 
@@ -23,16 +23,14 @@
     ?>
 
 <div class="container-fluid">
-        <h2 align="center">Detail Pemasukan SMP Integral</h2>
-        <h2 align="center">Hidayatullah Probolinggo</h2>
-    <div class="row justify-content-center">
+    <br>
+        <h3 align="center">Detail Pemasukan SMP Integral</h3>
+        <h3 align="center">Hidayatullah Probolinggo</h3>
+        <br>
+        <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-12 ">
-
-            <a href="KelolaPelaporan_SMP.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-database"></i> Laporan Transaksi</a>
-            <a href="TambahData_SMP.php" class="btn btn-primary mb-2"><i class="nav-icon fa fa-cart-plus"></i> Tambah Transaksi</a>
             <div style="overflow-x:auto;">
-
-            <table class="table table-striped table-hover table-bordered table-align-middle" id="data">
+            <table class="table table-bordered" align = "center" id="data">
                 <thead >
                     <tr align="center">
                         <th>No</th>
